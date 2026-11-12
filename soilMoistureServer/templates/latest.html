@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Latest Soil Moisture</title>
+    </head>
+    <body>
+        <h1>Latest Soil Moisture</h1>
+        <a href="/">Back to Dashboard</a>
+        {% if latest %}
+            <p>Timestamp: {{ latest[0] }}</p>
+            <p>Raw Value: {{ latest[1] }}</p>
+            <p>Saturation: {{ latest[2] }}%</p>
+        {% else %}
+            <p>No data available.</p>
+        {% endif %}
+    </body>
+</html>

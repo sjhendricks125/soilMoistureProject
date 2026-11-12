@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Soil Moisture History</title>
+    </head>
+    <body>
+        <h1>Soil Moisture History</h1>
+        <a href="/">Back to Dashboard</a>
+        {% if readings %}
+            <table border="1"> <!-- HTML Table (border gives the visible borders)-->
+                 <tr> <!-- start a row -->
+                    {% for header in headers %} <!-- loop through headers -->
+                        <th>{{ header }}</th>
+                        {% endfor %} <!-- end loop through headers -->
+                 </tr>
+                 {% for reading in readings | reverse %} <!-- loop through readings in reverse order -->
+                    <tr>
+                         {% for value in reading %} <!-- loop through values in a row -->
+                            <td>{{ value }}</td>
+                        {% endfor %} <!-- end loop through values in a row -->
+                    </tr> <!-- end a row -->
+                {% endfor %} <!-- end loop through readings -->
+            </table>
+        {% else %} <!-- no readings available -->
+            <p>No data available.</p>
+        {% endif %}
+        
+
+    </body>
+</html>
